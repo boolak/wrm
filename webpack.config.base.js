@@ -27,10 +27,21 @@ export default{
                 use: ['babel-loader']
             },
             {
-                test: /\.(css|scss)$/,
+                test: /\.css$/,
+                include: path.join(__dirname, 'src'),
                 use: [
                     MiniCssExtractPlugin.loader,
                     "css-loader"
+                ]
+            },
+            {
+                test: /\.scss$/,
+                include: path.join(__dirname, 'src'),
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    // "style-loader",
+                    "css-loader",
+                    "sass-loader"
                 ]
             }
         ]
@@ -40,6 +51,16 @@ export default{
             filename: 'index.html',
             template: './src/index.html'
         }),
+        new CopyWebpackPlugin([
+            {
+                from: path.resolve(__dirname, 'src/static/images'),
+                to: 'static/images'
+            },
+            {
+                from: path.resolve(__dirname, 'src/static/lib'),
+                to: 'static/lib'
+            }
+        ]),
         new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[id].css"
