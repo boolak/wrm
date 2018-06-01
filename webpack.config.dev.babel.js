@@ -5,7 +5,20 @@ import configBase from './webpack.config.base';
 export default webpackMerge(configBase, {
     devtool: 'cheap-module-eval-source-map',
     module:{
-        
+        rules: [{
+            /**
+             * eslint代码规范校验
+             */
+            test: /\.(js|jsx)$/,
+            enforce: 'pre',
+            include: path.join(__dirname, 'src'),
+            use: [{
+                loader: 'eslint-loader',
+                options: {
+                    configFile: '.eslintrc.json'
+                }
+            }]
+        }]
     },
     plugins: [
 

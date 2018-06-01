@@ -10,6 +10,6 @@ export default class Header extends Component{
                 <Link to="/index">index</Link>
                 <Link to="/user">user</Link>
             </div>
-        )
+        );
     }
 }

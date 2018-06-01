@@ -5,8 +5,8 @@ export default class LeftMenu extends Component{
     render(){
         return (
             <div className="left-menu">
-                LeftMenudddddd
+                LeftMenu~~~
             </div>
-        )
+        );
     }
 }

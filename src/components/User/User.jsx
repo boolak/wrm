@@ -6,7 +6,7 @@ export default class User extends Component{
             <div>
                 我是User页面
             </div>
-        )
+        );
     }
 
 }

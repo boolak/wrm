@@ -11,10 +11,10 @@ export default class Frame extends Component{
         return (
             <div className="frame">
                 <Header/>
-                <div className="content">
-                    {this.props.children}
-                </div>
+                <LeftMenu/>
+                {/* <div className="content">
+                </div> */}
             </div>
-        )
+        );
     }
 }

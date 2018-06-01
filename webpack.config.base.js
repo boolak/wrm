@@ -8,7 +8,7 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 const STATIC_PATH = 'static';
 export default{
     entry: {
-        main: ["babel-polyfill", "./src/index.js"],
+        main: ['babel-polyfill', './src/index.js'],
         vendor: ['react', 'react-dom', 'react-router']
     },
     output: {
@@ -31,7 +31,7 @@ export default{
                 include: path.join(__dirname, 'src'),
                 use: [
                     MiniCssExtractPlugin.loader,
-                    "css-loader"
+                    'css-loader'
                 ]
             },
             {
@@ -40,8 +40,21 @@ export default{
                 use: [
                     MiniCssExtractPlugin.loader,
                     // "style-loader",
-                    "css-loader",
-                    "sass-loader"
+                    'css-loader',
+                    'sass-loader'
+                ]
+            },
+            {
+                test: /\.(jpg|png|jpeg|gif|svg)$/,
+                include: path.join(__dirname, 'src/static/images'),
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 10,
+                            name: `${STATIC_PATH}/images/[hash].[ext]`
+                        }
+                    }
                 ]
             }
         ]
@@ -62,8 +75,8 @@ export default{
             }
         ]),
         new MiniCssExtractPlugin({
-            filename: "[name].css",
-            chunkFilename: "[id].css"
+            filename: '[name].css',
+            chunkFilename: '[id].css'
         })
     ]
-}
+};
