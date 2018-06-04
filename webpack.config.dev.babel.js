@@ -4,7 +4,7 @@ import configBase from './webpack.config.base';
 
 export default webpackMerge(configBase, {
     devtool: 'cheap-module-eval-source-map',
-    module:{
+    module: {
         rules: [{
             /**
              * eslint代码规范校验
@@ -29,6 +29,6 @@ export default webpackMerge(configBase, {
         disableHostCheck: true,
         inline: true,
         historyApiFallback: true,
-        contentBase: path.join(__dirname, 'build'),
+        contentBase: path.join(__dirname, 'build')
     }
 });
