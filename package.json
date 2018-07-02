@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production --config webpack.config.build.babel.js --colors --display-error-details",
-    "start": "webpack-dev-server --config webpack.config.dev.babel.js --colors"
+    "start": "webpack-dev-server --mode development --config webpack.config.dev.babel.js --colors"
   },
   "author": "yoto",
   "license": "ISC",
